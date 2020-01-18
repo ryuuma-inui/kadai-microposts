@@ -1,8 +1,8 @@
 class ToppagesController < ApplicationController
   def index
     if logged_in?
-      @tasks = current_user.tasks.build  # form_with 用
-      @tasks = current_user.tasks.order(id: :desc).page(params[:page])
+      @micropost = current_user.microposts.build  # form_with 用
+      @microposts = current_user.feed_microposts.order(id: :desc).page(params[:page])
     end
   end
 end
